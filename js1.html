@@ -1,0 +1,54 @@
+
+var, let,const 
+1. var - var kuthe pn declare karta yeto, function scoped ahe, re-declared karta yeto.
+ex., var x = 10; 
+     var x = 20;
+
+2.let -  let safe variable ahe , block scoped {} ,cannot be re-declared in same block, update karta yeto.
+   "block madhe declare kela ki tya block madhech work karto.Punha declare nahi karta yet"
+ex.,  let y= 10;
+       y = 20;   //update
+      let y = 30;  //redeclare allowed nahii
+
+3.const - update , redeclared and value ekdach assign karta yete 
+         const = permanent value. ekda value set kele ki change hot nahi
+ex.,  const p = 300;
+       p = 200;  //not allowed
+
+FUNCTION 
+defn - A function is a block of code that performs a specific task and can be reused anytime.
+       call karta yete anywhere after declaration 
+       fucntions help in reducing repeated code 
+    
+HOISTING 
+means:  js mdhe moves variable and function declarartion to the top automatically.
+
+        1.Function hoisting -> call before declarartion
+        cat();  //allowed
+        function cat(){
+            console.log("my fav pet");
+        } 
+
+        2. variable hoisting-> hoist declaration to top but initial value is not hoisted tyamule it shows undefined 
+           console.log(name);
+           var name = "Shweta";
+
+        3. let/const hoisting-> cannot use them before declaration 
+
+
+Static language:
+declare the variable before used it . Program run karaichya agodr errors find kele jatat (compile time)
+         int num =10;
+         num ="HELLO";    //compile time error
+Ex. C, C++,JAVA
+
+Dynamic language :
+The variable is determined at runtime. Type checking happens at runtime
+     num = 186;
+     num = "Smita";
+     print(num);          
+EX.Python , JavaScript.PHP
+
+
+
+

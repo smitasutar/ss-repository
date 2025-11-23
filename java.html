@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 8 Features</title>
+</head>
+<body>
+    <h1>Java 8 Features</h1>
+    <p>Java 8, released in March 2014, introduced several major features that modernized Java programming.</p>
+
+    <h2>1. Lambda Expressions</h2>
+    <p>Lambda expressions allow writing anonymous functions and enable functional programming in Java.</p>
+    <pre><code>
+List<String> list = Arrays.asList("A", "B", "C");
+list.forEach(item -> System.out.println(item));
+    </code></pre>
+
+    <h2>2. Functional Interfaces</h2>
+    <p>An interface with only one abstract method. Can be used with lambda expressions.</p>
+    <pre><code>
+@FunctionalInterface
+interface MyInterface {
+    void display();
+}
+    </code></pre>
+
+    <h2>3. Stream API</h2>
+    <p>Allows processing collections in a functional style with operations like filter, map, reduce, and collect.</p>
+    <pre><code>
+List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+numbers.stream()
+       .filter(n -> n % 2 == 0)
+       .forEach(System.out::println); // prints 2, 4
+    </code></pre>
+
+    <h2>4. Default Methods in Interfaces</h2>
+    <p>Interfaces can have default implementations of methods without affecting existing implementations.</p>
+    <pre><code>
+interface MyInterface {
+    default void greet() {
+        System.out.println("Hello from default method");
+    }
+}
+    </code></pre>
+
+    <h2>5. Method References</h2>
+    <p>Short-hand for lambda expressions calling existing methods.</p>
+    <pre><code>
+List<String> list = Arrays.asList("A", "B");
+list.forEach(System.out::println);
+    </code></pre>
+
+    <h2>6. Optional Class</h2>
+    <p>Helps avoid <code>NullPointerException</code> by encapsulating optional values.</p>
+    <pre><code>
+Optional<String> name = Optional.ofNullable(null);
+System.out.println(name.orElse("Default Name")); // prints "Default Name"
+    </code></pre>
+
+    <h2>7. New Date and Time API</h2>
+    <p>Modern API for dates and times (java.time package).</p>
+    <pre><code>
+LocalDate date = LocalDate.now();
+LocalTime time = LocalTime.now();
+LocalDateTime dateTime = LocalDateTime.now();
+System.out.println(dateTime);
+    </code></pre>
+
+    <h2>8. Nashorn JavaScript Engine</h2>
+    <p>Allows executing JavaScript code within Java applications.</p>
+    <pre><code>
+ScriptEngineManager manager = new ScriptEngineManager();
+ScriptEngine engine = manager.getEngineByName("nashorn");
+engine.eval("print('Hello JavaScript in Java 8');");
+    </code></pre>
+
+    <h2>9. Parallel Array Sorting</h2>
+    <p>Arrays can be sorted using multiple threads with <code>Arrays.parallelSort()</code>.</p>
+    <pre><code>
+int[] arr = {5, 3, 2, 8};
+Arrays.parallelSort(arr);
+System.out.println(Arrays.toString(arr)); // [2,3,5,8]
+    </code></pre>
+
+    <h2>10. New Collection Methods</h2>
+    <p>Additional methods added to collections for convenience.</p>
+    <ul>
+        <li><code>forEach()</code> – iterate elements</li>
+        <li><code>removeIf()</code> – remove elements based on a condition</li>
+        <li><code>replaceAll()</code> – replace elements</li>
+        <li><code>sort()</code> – sort elements</li>
+    </ul>
+    <pre><code>
+List<String> list = new ArrayList<>(Arrays.asList("B","A","C"));
+list.sort(String::compareTo);
+list.forEach(System.out::println);
+    </code></pre>
+
+    <h2>11. Repeating Annotations</h2>
+    <p>Allows applying the same annotation multiple times on a class or method.</p>
+    <pre><code>
+@MyAnnotation(value="One")
+@MyAnnotation(value="Two")
+class MyClass {}
+    </code></pre>
+
+    <h2>12. Type Annotations</h2>
+    <p>Annotations can be applied to types for better type checking.</p>
+    <pre><code>
+List<@NonNull String> names;
+    </code></pre>
+
+    <h2>in short</h2>
+    <ul>
+        <li>Lambda Expressions enable functional programming.</li>
+        <li>Streams provide a powerful way to process collections.</li>
+        <li>Optional helps avoid null pointer errors.</li>
+        <li>Default methods add new functionality to interfaces.</li>
+        <li>New Date/Time API replaces old java.util.Date.</li>
+        <li>Method references provide concise syntax.</li>
+        <li>Nashorn engine allows JS execution in Java.</li>
+        <li>Collections have new useful methods for better data manipulation.</li>
+        <li>Annotations improvements: repeating and type annotations.</li>
+    </ul>
+</body>
+</html>

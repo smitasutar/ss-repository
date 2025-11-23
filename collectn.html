@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Collections Notes</title>
+</head>
+<body>
+    <h1>Java Collections Framework</h1>
+
+    <h2>Collection</h2>
+    <p>Collection is a framework (a built-in library) that provides many classes and interfaces to store and manage groups of objects.</p>
+
+    <h3>Why do we need collections?</h3>
+    <p>Instead of storing data using fixed size array, which has limitations:</p>
+    <ul>
+        <li>Fixed Size</li>
+        <li>Can store only same type</li>
+        <li>No built-in methods like search, sorting, insert, delete</li>
+    </ul>
+    <p>Collections solve these problems by providing:</p>
+    <ul>
+        <li>Dynamic size</li>
+        <li>Ready-made methods</li>
+        <li>Ability to store objects</li>
+        <li>Different data structures (List, Set, Queue, Map)</li>
+    </ul>
+
+    <h2>Collection Framework Structure</h2>
+    <pre>
+Iterable (interface)
+    |
+Collection (interface)
+    |
+List       Set       Queue (interfaces)
+|          |         |
+ArrayList  HashSet   PriorityQueue (classes)
+LinkedList LinkedHashSet  LinkedList
+Vector     TreeSet       ArrayDeque
+Stack
+Map (Not part of Collection Hierarchy)
+|
+HashMap    LinkedHashMap    TreeMap    Hashtable
+    </pre>
+
+    <h2>Main Interfaces in Collection</h2>
+
+    <h3>1. List</h3>
+    <ul>
+        <li>Allows duplicate elements</li>
+        <li>Maintains insertion order</li>
+        <li>Index-based (0,1,2,...)</li>
+    </ul>
+    <pre>
+List<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+list.add("A"); // duplicates allowed
+    </pre>
+
+    <h3>2. Set</h3>
+    <ul>
+        <li>Duplicates not allowed</li>
+        <li>Does not necessarily maintain order</li>
+    </ul>
+    <pre>
+Set<Integer> set = new HashSet<>();
+set.add(10);
+set.add(20);
+set.add(10); // ignored
+    </pre>
+
+    <h3>3. Queue</h3>
+    <ul>
+        <li>FIFO (First In First Out)</li>
+        <li>Used to represent real queues</li>
+    </ul>
+    <pre>
+Queue<Integer> q = new LinkedList<>();
+q.add(10);
+q.add(20);
+System.out.println(q.poll()); // removes 10
+    </pre>
+
+    <h3>4. Map (Not part of Collection Hierarchy)</h3>
+    <ul>
+        <li>Stores data in key-value pairs</li>
+        <li>Keys must be unique</li>
+    </ul>
+    <pre>
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "A");
+map.put(2, "B");
+    </pre>
+
+    <h2>Iterator in Collection</h2>
+    <p>Used to traverse elements one by one:</p>
+    <pre>
+Iterator<String> it = list.iterator();
+while(it.hasNext()){
+    System.out.println(it.next());
+}
+    </pre>
+
+    <h2>Advantages of Collection Framework</h2>
+    <ul>
+        <li>Dynamic size</li>
+        <li>Ready-made data structures</li>
+        <li>Easy searching, sorting and manipulation</li>
+        <li>Improves performance</li>
+        <li>Supports generics (type-safe)</li>
+    </ul>
+
+    <h2>List Implementations</h2>
+
+    <h3>1. ArrayList</h3>
+    <ul>
+        <li>Dynamic array, allows duplicates, null, index-based access</li>
+        <li>Fast searching and random access</li>
+    </ul>
+    <pre>
+ArrayList<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.get(1);
+list.set(1, "Orange");
+list.remove("Apple");
+list.size();
+list.contains("Mango");
+list.clear();
+    </pre>
+
+    <h3>ArrayList Example Program</h3>
+    <pre>
+import java.util.ArrayList;
+
+public class ArrayListDemo {
+    public static void main(String[] args) {
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+
+        System.out.println("List: " + fruits);
+        System.out.println("Second fruit: " + fruits.get(1));
+
+        fruits.set(1, "Orange");
+        System.out.println("After update: " + fruits);
+
+        fruits.remove("Apple");
+        System.out.println("After remove: " + fruits);
+
+        System.out.println("Size: " + fruits.size());
+        System.out.println("Contains Mango? " + fruits.contains("Mango"));
+    }
+}
+    </pre>
+
+    <h3>2. LinkedList</h3>
+    <ul>
+        <li>Elements stored in nodes</li>
+        <li>Fast insertion & deletion, slow searching</li>
+        <li>Supports addFirst, addLast, remove, get(index)</li>
+    </ul>
+    <pre>
+LinkedList<String> names = new LinkedList<>();
+names.add("A");
+names.addFirst("Start");
+names.addLast("End");
+names.remove("A");
+names.get(2);
+names.size();
+    </pre>
+
+    <h3>LinkedList Example</h3>
+    <pre>
+import java.util.LinkedList;
+
+public class LinkedListDemo {
+    public static void main(String[] args) {
+        LinkedList<String> cars = new LinkedList<>();
+        cars.add("A");
+        cars.add("B");
+        cars.add("C");
+
+        System.out.println("List: " + cars);
+
+        cars.addFirst("Start");
+        cars.addLast("End");
+
+        System.out.println("After add: " + cars);
+
+        cars.remove("B");
+        System.out.println("After remove: " + cars);
+
+        System.out.println("First: " + cars.getFirst());
+        System.out.println("Last: " + cars.getLast());
+    }
+}
+    </pre>
+
+    <h3>Difference: ArrayList vs LinkedList</h3>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <th>Feature</th>
+            <th>ArrayList</th>
+            <th>LinkedList</th>
+        </tr>
+        <tr>
+            <td>Internal structure</td>
+            <td>Dynamic array</td>
+            <td>Nodes</td>
+        </tr>
+        <tr>
+            <td>Insertion/deletion</td>
+            <td>Slow</td>
+            <td>Fast</td>
+        </tr>
+        <tr>
+            <td>Searching</td>
+            <td>Fast</td>
+            <td>Slow</td>
+        </tr>
+        <tr>
+            <td>Memory</td>
+            <td>Less</td>
+            <td>More</td>
+        </tr>
+    </table>
+
+    <h3>3. Vector</h3>
+    <ul>
+        <li>Same as ArrayList, but synchronized (thread-safe)</li>
+        <li>Slower than ArrayList, rarely used today</li>
+        <li>Capacity doubles when full</li>
+    </ul>
+    <pre>
+Vector<String> vec = new Vector<>();
+vec.add("A");
+vec.addElement("B");
+vec.remove("A");
+vec.get(1);
+vec.size();
+vec.capacity();
+    </pre>
+
+    <h3>4. Stack</h3>
+    <ul>
+        <li>LIFO data structure</li>
+        <li>Methods: push(), pop(), peek(), isEmpty(), search()</li>
+        <li>Preferred modern implementation: ArrayDeque</li>
+    </ul>
+    <pre>
+Stack<Integer> stack = new Stack<>();
+stack.push(10);
+stack.push(20);
+stack.pop();
+stack.peek();
+stack.isEmpty();
+stack.search(20);
+    </pre>
+
+    <h2>Set Implementations</h2>
+
+    <h3>1. HashSet</h3>
+    <ul>
+        <li>No duplicates, no order, fast search O(1)</li>
+    </ul>
+    <pre>
+HashSet<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Apple"); // ignored
+set.remove("Banana");
+set.contains("Mango");
+set.size();
+set.clear();
+    </pre>
+
+    <h3>2. LinkedHashSet</h3>
+    <ul>
+        <li>No duplicates, maintains insertion order</li>
+    </ul>
+    <pre>
+LinkedHashSet<String> set = new LinkedHashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Banana"); // ignored
+set.remove("Banana");
+set.contains("Mango");
+set.size();
+    </pre>
+
+    <h3>3. TreeSet</h3>
+    <ul>
+        <li>Sorted order, no duplicates, null not allowed</li>
+        <li>Uses Red-Black Tree internally</li>
+    </ul>
+    <pre>
+TreeSet<Integer> ts = new TreeSet<>();
+ts.add(50);
+ts.add(20);
+ts.add(40);
+System.out.println(ts); // [20, 40, 50]
+ts.first();
+ts.last();
+ts.higher(20);
+ts.lower(20);
+    </pre>
+
+    <h2>Queue Implementations</h2>
+
+    <h3>Queue (Concept)</h3>
+    <ul>
+        <li>FIFO</li>
+        <li>Used for task scheduling, buffering</li>
+    </ul>
+    <pre>
+Queue<Integer> q = new LinkedList<>();
+q.add(10);
+q.add(20);
+q.poll(); // removes 10
+q.peek(); // head
+    </pre>
+
+    <h3>PriorityQueue</h3>
+    <ul>
+        <li>Elements processed by priority</li>
+        <li>No null, duplicates allowed</li>
+        <li>Internally uses Binary Heap</li>
+    </ul>
+    <pre>
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.add(50);
+pq.add(10);
+pq.add(40);
+System.out.println(pq);
+pq.peek();
+pq.poll();
+    </pre>
+
+    <h3>ArrayDeque</h3>
+    <ul>
+        <li>Resizable array, insertion/deletion from both ends</li>
+        <li>Null not allowed</li>
+        <li>Preferred over Stack and LinkedList</li>
+    </ul>
+    <pre>
+ArrayDeque<Integer> dq = new ArrayDeque<>();
+dq.addFirst(50);
+dq.addLast(100);
+dq.push(200); // stack usage
+dq.pop();
+dq.removeFirst();
+dq.removeLast();
+    </pre>
+
+    <h2>Map Interface</h2>
+    <ul>
+        <li>Stores key-value pairs</li>
+        <li>Keys unique, values can repeat</li>
+    </ul>
+
+    <h3>HashMap</h3>
+    <ul>
+        <li>Random order, allows 1 null key, multiple null values</li>
+    </ul>
+    <pre>
+HashMap<Integer, String> map = new HashMap<>();
+map.put(101, "Amit");
+map.put(102, "Rohan");
+map.get(101);
+    </pre>
+
+    <h3>LinkedHashMap</h3>
+    <ul>
+        <li>Maintains insertion order</li>
+    </ul>
+    <pre>
+LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+map.put(103, "Neha");
+map.put(101, "Amit");
+map.put(102, "Rohan");
+map.get(102);
+    </pre>
+
+    <h3>TreeMap</h3>
+    <ul>
+        <li>Sorted by keys, null keys not allowed</li>
+        <li>Slower than HashMap</li>
+    </ul>
+    <pre>
+TreeMap<Integer, String> map = new TreeMap<>();
+map.put(103, "Neha");
+map.put(101, "Amit");
+map.put(102, "Rohan");
+map.get(101);
+    </pre>
+
+    <h3>Hashtable</h3>
+    <ul>
+        <li>Synchronized, thread-safe</li>
+        <li>No null key/value</li>
+        <li>Slower than HashMap</li>
+    </ul>
+    <pre>
+Hashtable<Integer, String> table = new Hashtable<>();
+table.put(101, "Amit");
+table.put(102, "Neha");
+table.get(102);
+    </pre>
+
+</body>
+</html>

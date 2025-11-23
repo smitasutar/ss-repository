@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function_types</title>
+</head>
+<body>
+
+<h1><u>Function Types</u></h1>
+
+<h2> What is Anonymous Function?</h2>
+<p>An anonymous function is a function without a name.</p>
+<p>it stored in a variable or passed an argument to other function</p>
+<p>it cannot be reused directly unless stored in a variable</p>
+<pre>
+Ex:
+const display = function () {
+    console.log("Anonymous function stored in a variable");
+};
+display();
+</pre>
+<hr />
+
+<h2>What is Arrow Function?</h2>
+<p>Arrow functions are a shorter and modern way to write functions using =>.
+   They are usually used for simple tasks.
+</p>
+<pre>
+Ex:
+const add = (a, b) => a + b;
+console.log(add(2, 3)); 
+// Output: 5
+</pre>
+<hr />
+
+<h2>What is Callback Function?</h2>
+<p>A callback is a function passed as an argument to another function.</p>
+<p>- It’s a function passed into another function.</p>
+<p>- The outer function calls it back at the right time.</p>
+<p>- Commonly used in event handling, array methods.</p>
+
+
+
+<pre>
+Ex:
+function firstTask(name, callback) {
+    console.log("Starting first task for " + name);
+    callback(); // Run the callback after first task
+}
+
+function secondTask() {
+    console.log("Second task completed!");
+}
+
+firstTask("Shweta", secondTask);
+
+</pre>
+<hr />
+
+<h1>DOM</h1>
+<p>The DOM (Document Object Model) in JavaScript is like a map of our webpage that JavaScript uses to find and change things on the page.</p>
+
+<h2>What is DOM?</h2>
+<p>
+- DOM stands for: Document Object Model
+- Purpose: It lets programming languages like JavaScript interact with and modify the content, structure, and style of a webpage.
+- Structure: The DOM represents the page as a tree of nodes, where each HTML element is a node (like <div>, <p>, <h1>, etc.).
+- Created by the browser: When a web page loads, the browser parses the HTML and builds the DOM tree in memory.
+
+</p>
+
+<h2>What can JavaScript do with the DOM?</h2>
+<p>
+     Access elements (getElementById, querySelector)
+     Change content (innerText, innerHTML) 
+     Modify styles (style.color, style.fontSize) 
+     Create elements (createElement, appendChild) 
+     Remove elements (remove) → Handle events (addEventListener) 
+     Change attributes (setAttribute, src, href)
+</p>
+
+<hr />
+
+<h2><u>what is Events?</u></h2>
+<p>Events are signals that something has happened in the browser. 
+   JavaScript can "listen" for these events and run code in response.</p>
+<p><b>Common Event Types:</b></p>
+<ul>
+    <li>Mouse Events: click, dblclick, mousemove,mouseover, mouseout</li>
+    <li>Keyboard Events: keydown, keyup, keypress</li>
+    <li>Form Events: submit, change, focus,input blur</li>
+    <li>Window Events: load, resize, scroll,unloads</li>
+</ul>
+<hr />
+
+</body>
+</html>

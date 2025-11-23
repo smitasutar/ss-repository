@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+</head>
+<body>
+
+<h1>JavaScript</h1>
+
+<table border="1" cellpadding="10">
+    
+    <tr>
+        <td>Variable</td>
+        <td>A variable is a container that stores data.<br>
+        <td>
+        var - var is declare anywhere, function scoped, re-declared
+          ex.,     var x = 10; 
+                   var x = 20; </td>
+
+         <td>2.let -  let it is safe variable , block scoped {} ,cannot be re-declared in same block,   
+                      "block madhe declare kela ki tya block madhech work karto.Punha declare nahi karta yet"
+          ex.,  let y= 10;
+                y = 20;   //update
+                let y = 30;  //redeclare allowed nahii   
+      </td>  
+      <td>3.const - update , redeclared and value ekdach assign karta yete 
+         const = permanent value. ekda value set kele ki change hot nahi
+       ex.,  const p = 300;
+       p = 200;  //not allowed
+       </td> 
+        <tr>
+        <td>var, let, const</td>
+        <td>
+            var - old variable, function scope<br>
+            let - block scope<br>
+            const - value cannot change
+        </td>
+    </tr>
+    
+    </tr>
+
+
+    <tr>
+        <td>Datatypes</td>
+        <td>
+            String - "Hello"<br>
+            Number - 10, 20.5<br>
+            Boolean - true/false<br>
+            Array - [1, 2, 3]<br>
+            Object - {name: "Shweta"}<br>
+            Undefined - no value<br>
+            Null - empty value
+        </td>
+    </tr>
+
+    <tr>
+        <td> What is Function ?</td>
+        <td>defn - A function is a block of code that performs a specific task and can be reused anytime.
+                it is called anywhere after declaration <br>
+                 fucntions help in reducing repeated code 
+            Example: function add(a, b) { return a + b; }
+        </td>
+    </tr>
+
+    <tr>
+        <td>HOISTING 
+          means:JavaScript moves variable and function declarartion to the top automatically.
+
+        1.Function hoisting -> call before declarartion
+        cat();  //allowed
+        function cat(){
+            console.log("my fav pet");
+        } 
+
+        2. variable hoisting-> hoist declaration to top but initial value is not hoisted tyamule it shows undefined 
+           console.log(name);
+           var name = "Shweta";
+
+        3. let/const hoisting-> cannot use them before declaration </td>
+    </tr>
+
+    <tr>
+        <td>Dynamic vs Static Language</td>
+        <td>
+            Dynamic: type changes at runtime (JavaScript)<br>
+            Static: type fixed before running (Java, C++)
+            </td>
+            <td>
+            Static language:
+            declare the variable before used it. (compile time)
+             int num =10;
+             num ="HELLO";    //compile time error
+          Ex. C, C++,JAVA
+</td>
+
+       <td>
+            Dynamic language :
+              The variable is determined at runtime. Type checking happens at runtime
+               num = 2;
+               num = "Shweta";
+               print(num);          
+               EX.Python , JavaScript,PHP 
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+
+
+
