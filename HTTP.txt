@@ -1,0 +1,23 @@
+HTTP Protocol is used everywhere from the server page to each service communication, deploying service to monitoring service. HTTP codes give an extension of HTTP protocol to debug network problems using curl, telnet able to check server availability, service responses
+
+HTTP status code is used for search engine optimization of how your pages get indexed, as well as how search engines perceive the performance of your site.
+
+The initial line of the server’s response indicates the HTTP version and a three-digit status code. Server reserves some default error messages (404 not found or 500 internal server error). Each server(Tomcat, Redhat, Web server) reserves some HTTP status for inbuilt functionality. It is also possible to manually configure the status code.
+
+HTTP Response Status Codes
+Informational responses (100–199)
+Successful responses (200–299)
+Redirection messages (300–399)
+Client error responses (400–499)
+Server error responses (500–599)
+
+
+Message 	Description
+100           Continue	readies for the client to continue with a request.
+101          Switching Protocols	that it will be switching to another protocol.
+102           Processing (WebDAV)	This code tells us that server is processing the request but at the current time, no response is available.
+103             Early Hints	This is to be used with the Link Header, where the preloading resources are started and the server prepares responses.
+
+When you visit a website or make a request online, your browser communicates with a server using HTTP (Hypertext Transfer Protocol). The server responds with a three-digit HTTP status code that indicates whether the request was successful or if something went wrong. These codes are grouped into categories and help explain the outcome of your request in a simple way.
+
+
