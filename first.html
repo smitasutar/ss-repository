@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primary Key vs Foreign Key</title>
+</head>
+<body>
+
+    <h1>Difference Between Primary Key and Foreign Key</h1>
+
+    <h2>Primary Key</h2>
+    <p>
+        A Primary Key is a column or a group of columns that uniquely identifies each record in a table.
+    </p>
+    <ul>
+        <li>Uniquely identifies each row</li>
+        <li>Cannot contain NULL values</li>
+        <li>Duplicate values are not allowed</li>
+        <li>Only one Primary Key per table</li>
+        <li>Ensures entity integrity</li>
+    </ul>
+
+    <h3>Example</h3>
+    <pre>
+CREATE TABLE Student (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+    </pre>
+
+    <hr>
+
+    <h2>Foreign Key</h2>
+    <p>
+        A Foreign Key is a column that is used to create a link between two tables. It refers to the Primary Key of another table.
+    </p>
+    <ul>
+        <li>Can contain duplicate values</li>
+        <li>Can contain NULL values</li>
+        <li>More than one Foreign Key is allowed in a table</li>
+        <li>Ensures referential integrity</li>
+        <li>Used to maintain relationship between tables</li>
+    </ul>
+
+    <h3>Example</h3>
+    <pre>
+CREATE TABLE Marks (
+    marks_id INT,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id)
+);
+    </pre>
+
+    <hr>
+
+    <h2>Difference Table</h2>
+    <table border="1">
+        <tr>
+            <th>Primary Key</th>
+            <th>Foreign Key</th>
+        </tr>
+        <tr>
+            <td>Uniquely identifies a record</td>
+            <td>Refers to Primary Key of another table</td>
+        </tr>
+        <tr>
+            <td>Cannot be NULL</td>
+            <td>Can be NULL</td>
+        </tr>
+        <tr>
+            <td>No duplicate values allowed</td>
+            <td>Duplicate values allowed</td>
+        </tr>
+        <tr>
+            <td>Only one per table</td>
+            <td>Multiple per table allowed</td>
+        </tr>
+        <tr>
+            <td>Ensures entity integrity</td>
+            <td>Ensures referential integrity</td>
+        </tr>
+    </table>
+
+</body>
+</html>
